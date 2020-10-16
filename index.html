@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <h1>{{titulo}}</h1>
+        <button class="btn btn-success" v-on:click="consumirApi">Consultar</button>
+        <hr>
+        <div>
+            <div v-for="cuenta in listaDeCuentas">
+                <strong> Nro Cuenta: </strong>{{cuenta.NroCuentaCorriente}}
+                <br>
+                <strong> Razon Social: </strong> {{cuenta.Proveedor.RazonSocial}}
+                <br>
+                <strong> CUIT: </strong> {{cuenta.Proveedor.CUIT}}
+                <br>
+                <strong> Saldo: </strong> {{cuenta.Saldo}}
+                <br>
+                <strong> Email: </strong> {{cuenta.Proveedor.Email}}
+                <hr>
+            </div>            
+        </div>        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.5"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+               titulo: 'Listado de cuentas corrientes de proveedores',
+               listaDeCuentas: [] 
+            },
+            methods: {
+                consumirApi: function(){
+                    this.$http.get('api/CuentaCorriente.php').then(function(respuesta){
+                        this.listaDeCuentas = respuesta.body;
+                    });                  
+                }
+            }
+        });
+    </script>
+</body>
+</html>
