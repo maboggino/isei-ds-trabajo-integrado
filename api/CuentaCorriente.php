@@ -12,7 +12,7 @@ $prov1->Email="adidas@adidas.com";
 
 $cueCor1=new CuentaCorriente;
 
-$cueCor1->NroCuentaCorriente=2;
+$cueCor1->NroCuentaCorriente=1;
 $cueCor1->Saldo="$1000";
 $cueCor1->Proveedor=$prov1;
 
@@ -36,7 +36,7 @@ $prov3->Email="newBalance@newBalance.com";
 
 $cueCor3=new CuentaCorriente;
 
-$cueCor3->NroCuentaCorriente=2;
+$cueCor3->NroCuentaCorriente=3;
 $cueCor3->Saldo="$2000";
 $cueCor3->Proveedor=$prov3;
 
@@ -48,7 +48,7 @@ $prov4->Email="topper@topper.com";
 
 $cueCor4=new CuentaCorriente;
 
-$cueCor4->NroCuentaCorriente=2;
+$cueCor4->NroCuentaCorriente=4;
 $cueCor4->Saldo="-$2000";
 $cueCor4->Proveedor=$prov4;
 

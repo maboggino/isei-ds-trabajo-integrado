@@ -11,19 +11,26 @@
         <h1>{{titulo}}</h1>
         <button class="btn btn-success" v-on:click="consumirApi">Consultar</button>
         <hr>
-        <div>
-            <div v-for="cuenta in listaDeCuentas">
-                <strong> Nro Cuenta: </strong>{{cuenta.NroCuentaCorriente}}
-                <br>
-                <strong> Razon Social: </strong> {{cuenta.Proveedor.RazonSocial}}
-                <br>
-                <strong> CUIT: </strong> {{cuenta.Proveedor.CUIT}}
-                <br>
-                <strong> Saldo: </strong> {{cuenta.Saldo}}
-                <br>
-                <strong> Email: </strong> {{cuenta.Proveedor.Email}}
-                <hr>
-            </div>            
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nro Cuenta</th>
+                <th scope="col">Razon Social</th>
+                <th scope="col">CUIT</th>
+                <th scope="col">Saldo</th>
+                <th scope="col">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="cuenta in listaDeCuentas">
+                <th scope="row">{{cuenta.NroCuentaCorriente}}</th>
+                <td>{{cuenta.Proveedor.RazonSocial}}</td>
+                <td>{{cuenta.Proveedor.CUIT}}</td>
+                <td>{{cuenta.Saldo}}</td>
+                <td>{{cuenta.Proveedor.Email}}</td>
+              </tr>
+            </tbody>
+          </table>            
         </div>        
     </div>
 
